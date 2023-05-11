@@ -1,0 +1,4 @@
+pre-commit
+pre-commit-hooks
+setuptools
+wheel

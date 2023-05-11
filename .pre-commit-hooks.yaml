@@ -1,0 +1,16 @@
+- id: check-object-names
+  name: Check Object Names
+  description: Checks whether the name of an AL object matches that of the schema defined by the CRS AL language extension
+  entry: check-object-names
+  language: python
+- id: textmate-grammar-validation
+  name: textmate-grammar-validation
+  entry: textmate-grammar-validation
+  language: python
+- id: compile-al-app
+  name: compile-al-app
+  entry: compile-al-app
+  language: python
+  always_run: true
+  files: /.al$
+  pass_filenames: false
