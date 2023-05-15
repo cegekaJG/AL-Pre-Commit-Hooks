@@ -104,10 +104,12 @@ def init_args():
     parser.add_argument(
         '-F',
         '--failFast',
-        type=bool,
+        action='store_true',
         help='If False, the script will continue building all apps after running into a compile error. (default: False)',
     )
-    parser.add_argument('-v', '--verbose', type=bool, help='Enable verbose output.')
+    parser.add_argument(
+        '-v', '--verbose', action='store_true', help='Enable verbose output.'
+    )
 
     print(parser.parse_args('--failFast app1 -v -p cache'.split()))
     global args
