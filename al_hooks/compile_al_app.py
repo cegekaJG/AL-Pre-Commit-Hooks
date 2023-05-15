@@ -99,21 +99,24 @@ def init_args():
         '-U',
         '--compilerUrl',
         type=str,
-        help='Alternate URL of the compiler. The default link is rate limited to 10 per day, so specify one if necessary.',
+        help='Alternate URL of the compiler. Only used when downloading the compiler from the Visual Studio marketplace. The default link is rate limited to 10 per day, so specify one if necessary.',
     )
     parser.add_argument(
         '-F',
         '--failFast',
         action='store_true',
-        help='If False, the script will continue building all apps after running into a compile error. (default: False)',
+        help='Aborts the run as soon as one of the apps fails to compile.',
     )
     parser.add_argument(
         '-v', '--verbose', action='store_true', help='Enable verbose output.'
     )
 
-    print(parser.parse_args('--failFast app1 -v -p cache'.split()))
     global args
     args = vars(parser.parse_args())
+
+    if args['verbose']:
+        print('Arguments:')
+        print(args)
 
 
 def get_package_path(app_path):
