@@ -45,11 +45,12 @@ def main():
                 exit(1)
             failed_apps.append(app_name)
 
-    if len(failed_apps) == 0:
-        print('All apps successfully compiled.')
-    else:
-        print(f"Failed to compile the following apps: {', '.join(failed_apps)}")
-        exit(1)
+    if len(app_paths) > 1:
+        if len(failed_apps) == 0:
+            print('All apps successfully compiled.')
+        else:
+            print(f"Failed to compile the following apps: {', '.join(failed_apps)}")
+            exit(1)
 
 
 def compile_app(compiler_path, app_path, package_path):
@@ -78,6 +79,7 @@ def init_args():
     parser.add_argument(
         'app',
         type=str,
+        nargs='?',
         default='*',
         help='The app within the repository to compile. May be an absolute path or a glob pattern. (default: %(default)s)',
     )
